@@ -1,6 +1,7 @@
 import React from 'react'
 import {Container , Row , Col , Card ,CardGroup,Button} from 'react-bootstrap';
 import { Header } from '../Header/Header';
+import {Footer} from '../Footer/Footer';
 
 function Home() {
   return (
@@ -59,7 +60,7 @@ function Home() {
           </Col>
         </CardGroup>
         </Row>
-
+        <Footer/>
 
     </div>
   )

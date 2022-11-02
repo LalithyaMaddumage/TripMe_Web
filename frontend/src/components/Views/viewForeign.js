@@ -1,7 +1,7 @@
 import React from 'react'
 import {Container , Row , Col,Card,Form,Button} from 'react-bootstrap';
 import { Header } from '../Header/Header';
-
+import { Footer } from '../Footer/Footer';
 
 
 function ViewForeign() {
@@ -89,6 +89,10 @@ function ViewForeign() {
       </Card>
       </Col>
       </Row>
+
+      <br/><br/><br/>
+                
+      <Footer/>
 
     </div>
   )
