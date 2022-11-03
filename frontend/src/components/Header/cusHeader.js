@@ -24,7 +24,7 @@ export default function CusHeader() {
         </Col>
 
         <Col sm={2} className='head-title'>
-          <h5> <BsFillBookmarkCheckFill/> &nbsp; Customer Booking </h5>
+          <h5> <BsFillBookmarkCheckFill/> &nbsp; My Booking </h5>
         </Col>
 
         <Col className='head-title'>
@@ -32,7 +32,7 @@ export default function CusHeader() {
         </Col>
         
         <Col className='head-title'>
-          <h5> <BsFillPersonFill/>  &nbsp; Admin  </h5>
+          <h5> <BsFillPersonFill/>  &nbsp; Profile  </h5>
         </Col>
 
       </Row>
