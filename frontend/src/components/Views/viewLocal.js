@@ -1,8 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Row , Col,Card,Form,Button} from 'react-bootstrap';
 import { Header } from '../Header/Header';
+import axios from 'axios';
 
 function ViewLocal() {
+  const[Name,setName] = useState("");
+  const[Address,setAddress] = useState("");
+  const[Phone,setPhone] = useState("");
+  const[Email,setEmail] = useState("");
+  const[NIC,setNIC] = useState("");
+  const[type,setType] = useState("");
+
+  const win = window.sessionStorage;
+
+  const loadData = () =>{
+    axios.get(`http://localhost:8070/traveller/getTraveller/${type}/${Email}`).then((response)=>{
+      console.log(response.data);
+      setName(response.data.Name);
+      setAddress(response.data.Address);
+      setPhone(response.data.Phone);
+      setNIC(response.data.NIC);
+    })
+  }
+
+  useEffect(()=>{
+    if(win.getItem("Email")){
+      setEmail(win.getItem("Email"));
+    }
+    if(win.getItem("type")){
+      setType(win.getItem("type"));
+    }
+    if(Email && type){
+      loadData();
+    }
+  },[type,Email])
+
   return (
     <div>
 
@@ -27,7 +59,7 @@ function ViewLocal() {
         Name
         </Form.Label>
         <Col sm={10}>
-        <Form.Control type="name" placeholder="Name" disabled/>
+        <Form.Control type="name" placeholder="Name" disabled value={Name}/>
         </Col>
       </Form.Group>
 
@@ -36,7 +68,7 @@ function ViewLocal() {
         Address
         </Form.Label>
         <Col sm={10}>
-        <Form.Control type="address" placeholder="Adress" disabled/>
+        <Form.Control type="address" placeholder="Adress" disabled value={Address}/>
         </Col>
       </Form.Group>
 
@@ -45,7 +77,7 @@ function ViewLocal() {
        Phone Number
         </Form.Label>
         <Col sm={10}>
-        <Form.Control type="phone" placeholder="Phone" disabled/>
+        <Form.Control type="phone" placeholder="Phone" disabled value={Phone}/>
         </Col>
       </Form.Group>
 
@@ -54,7 +86,7 @@ function ViewLocal() {
         Email address
         </Form.Label>
         <Col sm={10}>
-        <Form.Control type="email" placeholder="Enter email" disabled/>
+        <Form.Control type="email" placeholder="Enter email" disabled value={Email}/>
         </Col>
       </Form.Group>
 
@@ -64,7 +96,7 @@ function ViewLocal() {
         NIC
         </Form.Label>
         <Col sm={10}>
-        <Form.Control type="nic" placeholder="NIC" disabled/>
+        <Form.Control type="nic" placeholder="NIC" disabled value={NIC}/>
         </Col>
       </Form.Group>
 

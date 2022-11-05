@@ -20,7 +20,9 @@ function Home() {
           </Card.Text>
         </Card.Body>
         <Card.Footer>
+        <a href='/main/login'>
         <Button variant="outline-warning">Top Up Your Account</Button>{' '} 
+        </a>
         </Card.Footer>
         </Card>
         </Col>
@@ -36,7 +38,9 @@ function Home() {
           </Card.Text>
         </Card.Body>
         <Card.Footer>
+        <a href='/main/register'>
         <Button variant="outline-primary">Loacl Passenger Register</Button>{' '} 
+        </a>
         </Card.Footer>
         </Card>
           
@@ -52,8 +56,10 @@ function Home() {
           </Card.Text>
         </Card.Body>
         <Card.Footer>
+        <a href='/main/foriegnregister'>
         <Button variant="outline-success">Foriegn Passenger Register</Button>{' '} 
-         
+        </a>
+
           {/* <small className="text-muted">Last updated 3 mins ago</small> */}
         </Card.Footer>
         </Card>

@@ -1,12 +1,51 @@
-import React from 'react'
+import React, { useEffect,useState} from 'react'
 import {Container , Row , Col,Card,Form,Button} from 'react-bootstrap';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
+import axios from 'axios';
 
 
 function ViewForeign() {
+  const [Name, setName] = useState("");
+  const [Phone, setPhone] = useState("");
+  const [Email, setEmail] = useState("");
+  const [PassportNo, setPassportNo] = useState("");
+  const [Password, setPassword] = useState("");
+  const [type, setType] = useState("");
+
+  const win = window.sessionStorage;
+
+  const loadData = () =>{
+    axios.get(`http://localhost:8070/traveller/getTraveller/${type}/${Email}`).then((response)=>{
+      console.log(response.data);
+      setName(response.data.Name);
+      setPhone(response.data.Phone);
+      setPassportNo(response.data.PassportNo);
+    })
+
+  }
+
+
+useEffect(() => {
+
+  if(win.getItem("Email")){
+    setEmail(win.getItem("Email"));
+   }
+   if(win.getItem("type")){
+    setType(win.getItem("type"));
+   }
+   if(Email && type){
+    loadData();
+   }
+},[type,Email])
+
+
+
   return (
+    
+
     <div>
+
         <Header/>
         <br></br>
         <br></br>
@@ -23,21 +62,13 @@ function ViewForeign() {
 
 
             <Form className='form-reg'>
+              {}
       <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
         <Form.Label column sm={2}>
         Name
         </Form.Label>
         <Col sm={10}>
-        <Form.Control type="name" placeholder="Name" disabled/>
-        </Col>
-      </Form.Group>
-
-      <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
-        <Form.Label column sm={2}>
-        Address
-        </Form.Label>
-        <Col sm={10}>
-        <Form.Control type="address" placeholder="Adress" disabled/>
+        <Form.Control type="name" placeholder="Name" value={Name} disabled/>
         </Col>
       </Form.Group>
 
@@ -46,7 +77,7 @@ function ViewForeign() {
        Phone Number
         </Form.Label>
         <Col sm={10}>
-        <Form.Control type="phone" placeholder="Phone" disabled/>
+        <Form.Control type="phone" placeholder="Phone" disabled value={Phone}/>
         </Col>
       </Form.Group>
 
@@ -55,7 +86,8 @@ function ViewForeign() {
         Email address
         </Form.Label>
         <Col sm={10}>
-        <Form.Control type="email" placeholder="Enter email" disabled/>
+        <Form.Control type="email" placeholder="Enter email" disabled value={Email}/>
+        {}
         </Col>
       </Form.Group>
 
@@ -65,7 +97,7 @@ function ViewForeign() {
         Passport
         </Form.Label>
         <Col sm={10}>
-        <Form.Control type="passport" placeholder="Passport" disabled/>
+        <Form.Control type="passport" placeholder="Passport" disabled value={PassportNo}/>
         </Col>
       </Form.Group>
 
