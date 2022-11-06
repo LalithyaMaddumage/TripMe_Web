@@ -1,10 +1,31 @@
-import React from 'react'
+import React , {useState ,useEffect}from 'react'
+import axios from 'axios';
 import MaterialTable from "material-table";
-import { Row , Col,Card,Form,Button} from 'react-bootstrap';
+import { Row , Col,Card,Form,Button ,Modal} from 'react-bootstrap';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
+import UpdateBooking from './updateBooking';
 
 export default function Booking() {
+
+  const[bookingData,setBData]=useState([]);
+
+  const [StateUpdate, setStateUpdate] = useState(false)
+  const [BookingUpdate, setBookinUpdate] = useState()
+
+
+
+
+  useEffect(()=>{
+    axios.get("http://localhost:8070/booking/allBookings").then((res)=>{
+        console.log(res.data);
+        setBData(res.data);
+    }).catch((err)=>{
+        alert(err.msg);
+    })
+      },[])
+
+
   return (
     <div >
       
@@ -17,39 +38,30 @@ export default function Booking() {
           title="All Ticket Bookings "
 
           columns={[
-            { title: "Action", field: "act" },
-            { title: "Customer Name", field: "name" },
-            { title: "Customer ID", field: "id" },
-            { title: "Bus Service", field: "bServ" },
-            { title: "Time", field: "time" },
-            { title: "Entry", field: "entry" },
-            { title: "Exit", field: "exit"},
+            { title: "Status", field: "Status" },
+            { title: "Customer Name", field: "CustomerName" },
+            // { title: "Customer ID", field: "id" },
+            { title: "Bus Service", field: "BusService" },
+            { title: "Time", field: "Time" },
+            { title: "Entry", field: "PickUp" },
+            { title: "Exit", field: "Destination"},
             
-
-            // {
-            //   title: "Time",
-            //   field: "time",
-            //   lookup: { 8: "8.00 am", 9: "9.00 am" },
-            // },
           ]}
-          data={[
+
+          data={bookingData}
+        
+
+
+          actions={[
             {
-             act : <Form>
-              <Form.Check 
-                type="switch"
-                id="custom-switch"
-                label="Accept"
-              /></Form>,
-              name: "Mehmet",
-              id: "C001",
-              bServ: "Tarindu Travels",
-              time:"8",
-              entry:"Colombo",
-              exit:"Kandy",
-              
+                icon: () => <button class="btn btn-sm btn-outline-warning">Approve Now</button>,
+                onClick: (event, rowData) => {
+                  setBookinUpdate(rowData); //setTransportDetailswithID
+                  setStateUpdate(true); //setStatetrue//setStatetrue
+                }
             },
-          ]}
 
+          ]}
           options={{
             // selection: true,
             exportButton: true,
@@ -61,6 +73,16 @@ export default function Booking() {
         }}
          
         />
+
+         {/* update modal */}
+         <Modal show={StateUpdate} size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+          >
+                    <Modal.Body>
+                        <UpdateBooking data={BookingUpdate} cl={() => setStateUpdate(false)} />
+                    </Modal.Body>
+          </Modal>
       </div>
     
       </div>
