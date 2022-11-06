@@ -4,10 +4,10 @@ import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 import axios from 'axios';
 import {Modal} from "react-bootstrap";
-import UpdateForeigner from './updateForeigner';
+// import UpdateForeigner from './updateForeigner';
 
 
-function ViewForeign() {
+function UpdateForeigner() {
   const [Name, setName] = useState("");
   const [Phone, setPhone] = useState("");
   const [Email, setEmail] = useState("");
@@ -44,10 +44,46 @@ useEffect(() => {
    }
 },[type,Email])
 
-// const openModalFUpdate = (data) => {
-//   setModalFUpdate(data);
-//   setModalFUpdateConfirm(true);
-// }
+
+const handleSubmit = () =>{
+    console.log("awa")
+    
+    const updateForeigner = {
+        Name,
+        Phone,
+        Email,
+        PassportNo
+    }
+
+    axios.put(`http://localhost:8070/traveller/updateTraveller/${type}/${Email}`,updateForeigner).then((response)=>{
+        alert("Foreign Passenger Details Updated Successfully!");
+        window.location.reload(true);
+    }).catch((err)=>{
+        console.log(err)
+        alert("Error occured !");
+    });
+
+ }
+// function handleSubmit(){
+
+  
+
+//     const updateForeigner = {
+//         Name,
+//         Phone,
+//         Email,
+//         PassportNo
+//     }
+
+//     axios.put(`http://localhost:8070/traveller/updateTraveller/${type}/${Email}`,updateForeigner).then((response)=>{
+//         alert("Foreign Passenger Details Updated Successfully!");
+//         window.location.reload(true);
+//     }).catch((err)=>{
+//         console.log(err)
+//         alert("Error occured !");
+//     });
+// };
+
 
   return (
     
@@ -65,18 +101,22 @@ useEffect(() => {
     <Card border="success" >
         {/* <Card.Header>Header</Card.Header> */}
         <Card.Body>
-          <Card.Title>MY PROFILE</Card.Title>
+          <Card.Title>UPDATE PROFILE</Card.Title>
           <Card.Text>
 
 
-            <Form className='form-reg'>
+            <Form className='form-reg' onSubmit={handleSubmit}>
               {}
       <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
         <Form.Label column sm={2}>
         Name
         </Form.Label>
         <Col sm={10}>
-        <Form.Control type="name" placeholder="Name" value={Name} disabled/>
+        <Form.Control type="name" placeholder="Name" value={Name}
+        onChange={(e)=>{
+            setName(e.target.value);
+          }}
+        />
         </Col>
       </Form.Group>
 
@@ -85,7 +125,11 @@ useEffect(() => {
        Phone Number
         </Form.Label>
         <Col sm={10}>
-        <Form.Control type="phone" placeholder="Phone" disabled value={Phone}/>
+        <Form.Control type="phone" placeholder="Phone"  value={Phone}
+        onChange={(e)=>{
+            setPhone(e.target.value);
+          }}
+        />
         </Col>
       </Form.Group>
 
@@ -94,8 +138,11 @@ useEffect(() => {
         Email address
         </Form.Label>
         <Col sm={10}>
-        <Form.Control type="email" placeholder="Enter email" disabled value={Email}/>
-        {}
+        <Form.Control type="email" placeholder="Enter email"  value={Email}
+        onChange={(e)=>{
+            setEmail(e.target.value);
+          }}
+        />
         </Col>
       </Form.Group>
 
@@ -105,7 +152,11 @@ useEffect(() => {
         Passport
         </Form.Label>
         <Col sm={10}>
-        <Form.Control type="passport" placeholder="Passport" disabled value={PassportNo}/>
+        <Form.Control type="passport" placeholder="Passport"  value={PassportNo}
+        onChange={(e)=>{
+            setPassportNo(e.target.value);
+          }}
+        />
         </Col>
       </Form.Group>
 
@@ -118,15 +169,17 @@ useEffect(() => {
         </Col>
         
         <Col >
-        <a href='/main/updateForeigner'>
         <Button 
           variant="warning" 
-          // type="submit"
-        
+          type="submit"
+            onSubmit={()=>{
+                console.log("handlesubmit");
+                handleSubmit();
+            }}
           >
-            Edit Account
+            Update
         </Button> &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        </a>
+        
         <Button variant="danger" type="submit">Delete Account</Button>
         </Col>
         <Col sm={2}>
@@ -147,4 +200,4 @@ useEffect(() => {
   )
 }
 
-export default ViewForeign;
+export default UpdateForeigner;
