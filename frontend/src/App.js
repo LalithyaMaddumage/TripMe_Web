@@ -9,6 +9,7 @@ import ViewLocal from './components/Views/viewLocal';
 import Booking from './components/Views/booking';
 import BusService from './components/Views/busService';
 import AddBooking from './components/Views/addBooking';
+import AddBusService from './components/Views/addBusService';
 import Home from './components/Views/Home';
 
 function App() {
@@ -24,7 +25,9 @@ function App() {
             <Route path="/main/booking" exact component={Booking} />
             <Route path="/main/busService" exact component={BusService} />
             <Route path="/main/addBooking" exact component={AddBooking} />
-            
+            <Route path="/main/addBusService" exact component={AddBusService} />
+
+
             <Route path="/main" exact component={Home} />
            
           </Switch>

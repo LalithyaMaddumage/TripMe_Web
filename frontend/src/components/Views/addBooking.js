@@ -12,9 +12,6 @@ import Button from 'react-bootstrap/Button';
 export default function AddBooking() {
 
     const [CustomerName, setCustomerName] = useState("");
-
-   
-
     const [Mobile, setMobile] = useState("");
     const [Email , setEmail] = useState ("");
     const [PickUp , setPickUp] = useState ("");
