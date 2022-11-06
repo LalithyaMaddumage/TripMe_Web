@@ -47,7 +47,7 @@ export default function AddBusService() {
 
         alert("Bus Service Added")
        
-        window.location.reload();
+        window.location.replace("/main/busservice");
 
     }).catch((err)=>{
         alert(err)
