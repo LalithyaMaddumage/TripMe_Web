@@ -2,7 +2,7 @@ import React , {useState ,useEffect}from 'react'
 import axios from 'axios';
 import MaterialTable from "material-table";
 import { Row , Col,Card,Form,Button ,Modal} from 'react-bootstrap';
-import { Header } from '../Header/Header';
+import { CusHeader } from '../Header/CusHeader'
 import { Footer } from '../Footer/Footer';
 import UpdateBooking from './updateBooking';
 
@@ -29,7 +29,7 @@ export default function Booking() {
   return (
     <div >
       
-        <Header></Header>
+        <CusHeader></CusHeader>
         <div className='container'>
 
         <div className=' container-fluid mt-5 '>

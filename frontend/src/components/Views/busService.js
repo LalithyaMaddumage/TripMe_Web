@@ -7,6 +7,7 @@ import { Footer } from '../Footer/Footer'
 import { Header } from '../Header/Header'
 import UpdateBusService from './updateBusService';
 
+
 export default function BusService() {
   const[busService,setBusService]=useState([]);
   const [StateUpdate, setStateUpdate] = useState(false)
@@ -23,7 +24,7 @@ export default function BusService() {
 
   return (
     <div>
-        <Header></Header>
+        <CusHeader></CusHeader>
         <br></br>
     <div style={{textAlign: "left" , marginLeft: "270px"}}>
         <h3> Bus Service Details</h3>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import {Container , Row , Col} from 'react-bootstrap';
-import { BsFillBookmarkCheckFill , BsFillInfoCircleFill ,BsFillPersonFill ,BsGrid3X3GapFill} from "react-icons/bs";
+import { BsFillBookmarkCheckFill , BsFillInfoCircleFill ,BsFillPersonFill ,BsGrid3X3GapFill,BsBoxArrowInDownRight} from "react-icons/bs";
 
 import '../../Header.scss';
 
@@ -38,11 +38,16 @@ export const Header = (props) => {
         <Col className='head-title'>
           <h5> <BsFillInfoCircleFill/>  &nbsp; About </h5>
         </Col>
-        
+        <a href='/main/adminlog'>
         <Col className='head-title'>
           <h5> <BsFillPersonFill/>  &nbsp; Admin  </h5>
         </Col>
-
+        </a>
+        <a href='/main/login'>
+        <Col className='head-title'>
+          <h5> <BsBoxArrowInDownRight/>  &nbsp; Login  </h5>
+        </Col>
+        </a>
       </Row>
 
 
