@@ -9,6 +9,7 @@ import ViewLocal from './components/Views/viewLocal';
 import Booking from './components/Views/booking';
 import BusService from './components/Views/busService';
 import Login from './components/Views/login';
+import UpdateForeigner from './components/Views/updateForeigner';
 import Home from './components/Views/Home';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/main/booking" exact component={Booking} />
             <Route path="/main/busService" exact component={BusService} />
             <Route path="/main/login" exact component={Login}/>
+            <Route path="/main/updateForeigner" exact component={UpdateForeigner}/>
             
             <Route path="/main" exact component={Home} />
            

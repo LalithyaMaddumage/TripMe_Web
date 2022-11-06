@@ -4,8 +4,26 @@ import { BiRestaurant } from "react-icons/bi";
 import {Container , Row , Col ,Card , Button} from 'react-bootstrap';
 import { Footer } from '../Footer/Footer'
 import { Header } from '../Header/Header'
+import { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 export default function BusService() {
+
+  const[busServices, setBusServices] = useState([]);
+  useEffect(()=>{
+    function getBusServices(){
+      axios.get("http://localhost:8070/busService/allBusServices").then((res)=>{
+        setBusServices(res.data.reverse());
+        console.log("data recieved")
+      }).catch((error)=>{
+        alert(error.message);
+      })
+    }
+    getBusServices();
+  },[]);
+
+  
   return (
     <div>
         <Header></Header>
