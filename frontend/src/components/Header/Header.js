@@ -30,11 +30,11 @@ export const Header = (props) => {
           <h5>
             <BsGrid3X3GapFill/> &nbsp;Main </h5>
         </Col>
-
-        <Col sm={2} className='head-title'>
+        <a href='/main/addBooking'>
+        <Col  className='head-title'>
           <h5> <BsFillBookmarkCheckFill/> &nbsp; Customer Booking </h5>
         </Col>
-
+        </a>
         <Col className='head-title'>
           <h5> <BsFillInfoCircleFill/>  &nbsp; About </h5>
         </Col>

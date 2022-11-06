@@ -4,7 +4,7 @@ import { FaClock ,FaRegSnowflake  ,FaWifi ,FaChargingStation} from "react-icons/
 import { BiRestaurant } from "react-icons/bi";
 import {Container , Row , Col ,Card , Button ,Modal} from 'react-bootstrap';
 import { Footer } from '../Footer/Footer'
-import { Header } from '../Header/Header'
+import { CusHeader } from '../Header/CusHeader'
 import UpdateBusService from './updateBusService';
 
 

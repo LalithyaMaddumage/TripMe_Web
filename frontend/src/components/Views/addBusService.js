@@ -1,6 +1,6 @@
 import React , {useState } from 'react'
 import axios from 'axios'
-import { Header } from '../Header/Header';
+import { CusHeader } from '../Header/CusHeader';
 import {Container , Row , Col} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -58,7 +58,7 @@ export default function AddBusService() {
   return (
     <div>
         <div>  
-        <Header/>
+        <CusHeader/>
         <br></br>
         <br></br>
         <br></br>
@@ -69,7 +69,7 @@ export default function AddBusService() {
         <Col md={{ span: 6, offset: 3 }}>
 
         <Form onSubmit={sendData} className='form-reg'>
-            <h4 className='reg'> New Booking  </h4>
+            <h4 className='reg'> Add Bus Service  </h4>
       
         <Form.Group className="mb-3" controlId="formBasicBusNumber">
         <Form.Label>BusNumber</Form.Label>
