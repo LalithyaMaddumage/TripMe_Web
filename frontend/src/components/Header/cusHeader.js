@@ -1,8 +1,8 @@
 import React from 'react'
 import {Container , Row , Col} from 'react-bootstrap';
 import { BsFillBookmarkCheckFill , BsFillInfoCircleFill ,BsFillPersonFill ,BsGrid3X3GapFill} from "react-icons/bs";
-
-export default function CusHeader() {
+import '../../Header.scss';
+export const CusHeader = (props) => {
   return (
     <div >
       
@@ -22,15 +22,16 @@ export default function CusHeader() {
           <h5>
             <BsGrid3X3GapFill/> &nbsp;Main </h5>
         </Col>
-
-        <Col sm={2} className='head-title'>
-          <h5> <BsFillBookmarkCheckFill/> &nbsp; My Booking </h5>
+        <a href='/main/booking'>
+        <Col  className='head-title'>
+          <h5> <BsFillBookmarkCheckFill/> &nbsp; Booking </h5>
         </Col>
-
+      </a>
+      <a href='/main/busService'>
         <Col className='head-title'>
-          <h5> <BsFillInfoCircleFill/>  &nbsp; About </h5>
+          <h5> <BsFillInfoCircleFill/>  &nbsp; Bus Services </h5>
         </Col>
-        
+        </a>
         <Col className='head-title'>
           <h5> <BsFillPersonFill/>  &nbsp; Profile  </h5>
         </Col>

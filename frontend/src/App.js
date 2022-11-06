@@ -11,6 +11,7 @@ import BusService from './components/Views/busService';
 import AddBooking from './components/Views/addBooking';
 import Login from './components/Views/login';
 import UpdateForeigner from './components/Views/updateForeigner';
+import AdminLogin from './components/Views/adminLogin'
 
 import Home from './components/Views/Home';
 
@@ -19,7 +20,8 @@ function App() {
     <div className="App">
        <Router>
            <Switch> 
-            
+           <Route path="/" exact component={Home} />
+           <Route path="/main/adminlog" exact component={AdminLogin}/>
             <Route path="/main/register" exact component={Register} />
             <Route path="/main/foriegnregister" exact component={ForeignRegister} />
             <Route path="/main/viewforeign" exact component={ViewForeign} />
@@ -31,7 +33,7 @@ function App() {
             <Route path="/main/updateForeigner" exact component={UpdateForeigner}/>
 
             
-            <Route path="/main" exact component={Home} />
+            
            
           </Switch>
          

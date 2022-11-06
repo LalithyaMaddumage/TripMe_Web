@@ -3,7 +3,7 @@ import { FaClock ,FaRegSnowflake  ,FaWifi ,FaChargingStation} from "react-icons/
 import { BiRestaurant } from "react-icons/bi";
 import {Container , Row , Col ,Card , Button} from 'react-bootstrap';
 import { Footer } from '../Footer/Footer'
-import { Header } from '../Header/Header'
+import { CusHeader } from '../Header/CusHeader'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -26,7 +26,7 @@ export default function BusService() {
   
   return (
     <div>
-        <Header></Header>
+        <CusHeader></CusHeader>
         <br></br>
     <div style={{textAlign: "left" , marginLeft: "270px"}}>
         <h3> Bus Service Details</h3>
