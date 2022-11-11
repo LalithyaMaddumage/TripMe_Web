@@ -116,46 +116,78 @@ export default function Payments() {
                 confirmButtonColor: "#1fc191",
 
             })
-    
-            const updateForeigner = {
-                Name,
-                Phone,
-                Email,
-                PassportNo,
-                NIC,
-                Address,
-                Password,
-                Amountt,
-                Amount1
-       
-            }
-        axios.put(`http://localhost:8070/traveller/updateTraveller/${type}/${Email}`,updateForeigner).then((response)=>{
-            Swal.fire({
-                title: "Rental Record added successfully! ",
-                icon: 'success',
 
-                confirmButtonColor: "#1fc191",
-
-            })
             if(type == "LocalTraveller"){
 
-                history.push("/main/viewLocal");
+                const updateLocal = {
+                    Name,
+                    Phone,
+                    Email,
+                    NIC,
+                    Address,
+                    Password,
+                    Amountt,
+                    Amount1
+           
+                }
+                axios.put(`http://localhost:8070/traveller/updateTraveller/${type}/${Email}`,updateLocal).then((response)=>{
+                    Swal.fire({
+                        title: "Rental Record added successfully! ",
+                        icon: 'success',
+        
+                        confirmButtonColor: "#1fc191",
+
+        
+                    }) 
+                    history.push("/main/viewLocal")      
+                }).catch((err)=>{
+                    var error = err.response.data.error
+                    Swal.fire({
+                        title: "Internal Server Error! ",
+                        text: error,
+                        icon: 'error',
+                        confirmButtonColor: "#1fc191",
+                    })
+                })
+
+                
 
               }else if(type == "ForeignTraveller"){
 
-                history.push("/main/viewforeign");
+                const updateForeigner = {
+                    Name,
+                    Phone,
+                    Email,
+                    PassportNo,
+                    Password,
+                    Amountt,
+                    Amount1
+           
+                }
+                axios.put(`http://localhost:8070/traveller/updateTraveller/${type}/${Email}`,updateForeigner).then((response)=>{
+                    Swal.fire({
+                        title: "Rental Record added successfully! ",
+                        icon: 'success',
+        
+                        confirmButtonColor: "#1fc191",
+        
+                    }) 
+                    history.push("/main/viewForeign")       
+                }).catch((err)=>{
+                    var error = err.response.data.error
+                    Swal.fire({
+                        title: "Internal Server Error! ",
+                        text: error,
+                        icon: 'error',
+                        confirmButtonColor: "#1fc191",
+                    })
+                })
+
+               
 
               }
-              
-        }).catch((err)=>{
-            var error = err.response.data.error
-            Swal.fire({
-                title: "Internal Server Error! ",
-                text: error,
-                icon: 'error',
-                confirmButtonColor: "#1fc191",
-            })
-        })
+            
+       
                    
     }
     
