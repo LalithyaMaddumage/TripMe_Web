@@ -12,7 +12,8 @@ import AddBooking from './components/Views/addBooking';
 import AddBusService from './components/Views/addBusService';
 import Login from './components/Views/login';
 import UpdateForeigner from './components/Views/updateForeigner';
-import AdminLogin from './components/Views/adminLogin'
+import AdminLogin from './components/Views/adminLogin';
+import Payments from './components/Views/payment';
 
 import Home from './components/Views/Home';
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="/main/addBooking" exact component={AddBooking} />
             <Route path="/main/addBusService" exact component={AddBusService} />
 
+            <Route path="/main/addPayment" exact component={Payments} />
 
             <Route path="/main/login" exact component={Login}/>
             <Route path="/main/updateForeigner" exact component={UpdateForeigner}/>
