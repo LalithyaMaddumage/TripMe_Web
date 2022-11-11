@@ -69,7 +69,7 @@ export default function AddBusService() {
         <Col md={{ span: 6, offset: 3 }}>
 
         <Form onSubmit={sendData} className='form-reg'>
-            <h4 className='reg'> New Booking  </h4>
+            <h4 className='reg'> Add Bus Service  </h4>
       
         <Form.Group className="mb-3" controlId="formBasicBusNumber">
         <Form.Label>BusNumber</Form.Label>
