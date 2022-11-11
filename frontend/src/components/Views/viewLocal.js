@@ -11,6 +11,18 @@ function ViewLocal() {
   const[NIC,setNIC] = useState("");
   const[type,setType] = useState("");
 
+  const [Amount, setAmount] = useState("");
+
+  //variables for QR code generation
+  const [qrCode, setQrCode] = useState("");
+
+  // Changing the URL only when the user
+  // changes the input
+  useEffect(() => {
+    setQrCode
+  (`http://api.qrserver.com/v1/create-qr-code/?data=${Amount},${NIC}!`);
+  }, [Amount, NIC]);
+
   const win = window.sessionStorage;
 
   const loadData = () =>{
@@ -20,6 +32,7 @@ function ViewLocal() {
       setAddress(response.data.Address);
       setPhone(response.data.Phone);
       setNIC(response.data.NIC);
+      setAmount(response.data.Amount);
     })
   }
 
@@ -100,6 +113,14 @@ function ViewLocal() {
         </Col>
       </Form.Group>
 
+      <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
+        <Form.Label column sm={2}>
+        Amount
+        </Form.Label>
+        <Col sm={10}>
+        <Form.Control type="amount" placeholder="Rs." disabled value={Amount}/>
+        </Col>
+      </Form.Group>
     
 
 
@@ -108,8 +129,31 @@ function ViewLocal() {
          
         </Col>
         <Col >
-        <Button variant="warning" type="submit">Edit Account</Button> &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-          <Button variant="danger" type="submit">Delete Account</Button>
+
+        <a href='/main/updateForeigner'>
+        <Button 
+          variant="warning" 
+          // type="submit"
+        >
+          Edit Account
+        </Button> 
+        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+        </a>
+
+        <Button variant="danger" type="submit">Delete Account</Button>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        <a href='/main/addPayment'>
+        <Button variant="outline-primary">Topup</Button>{' '} 
+        </a>
+        <br/><br/>
+        <div align="center" className="output-box">
+            <img src={qrCode} alt="" /> <br/><br/>
+                <a href={qrCode} download="QRCode">
+                    <Button type="button">Download</Button>
+                </a>
+        
+        </div>
+
         </Col>
         <Col sm={2}>
         </Col>

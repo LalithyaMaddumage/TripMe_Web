@@ -25,23 +25,20 @@ export const Header = (props) => {
         </div>
         
         </Col>
-      
+        <a href='/'>
         <Col className='head-title' >
           <h5>
-            <BsGrid3X3GapFill/> &nbsp;Main </h5>
+            <BsGrid3X3GapFill/> &nbsp;Home </h5>
         </Col>
-
-        <Col sm={2} className='head-title'>
-          <h5> <BsFillBookmarkCheckFill/> &nbsp; Customer Booking </h5>
-        </Col>
-
+        </a>
         <Col className='head-title'>
           <h5> <BsFillInfoCircleFill/>  &nbsp; About </h5>
         </Col>
         <a href='/main/adminlog'>
-        <Col className='head-title'>
+        <Col className='head-title pr-5'>
           <h5> <BsFillPersonFill/>  &nbsp; Admin  </h5>
         </Col>
+   
         </a>
         <a href='/main/login'>
         <Col className='head-title'>

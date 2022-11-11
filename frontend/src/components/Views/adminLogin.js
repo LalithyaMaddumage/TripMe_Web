@@ -33,7 +33,7 @@ function Login() {
     //   NIC
     // }
 
-    axios.get(`http://localhost:8070/login/getUserA/${UserN}/${Password}`).then((response)=>{
+    axios.get(`http://localhost:8070/login/getUser/${UserN}/${Password}`).then((response)=>{
             console.log(response.data);
             setLogin(response.data.login);
             if(response.data.login === null){

@@ -17,11 +17,12 @@ export const CusHeader = (props) => {
         </div>
         
         </Col>
-      
+        <a href='/'>
         <Col className='head-title' >
           <h5>
-            <BsGrid3X3GapFill/> &nbsp;Main </h5>
+            <BsGrid3X3GapFill/> &nbsp;Home </h5>
         </Col>
+        </a>
         <a href='/main/booking'>
         <Col  className='head-title'>
           <h5> <BsFillBookmarkCheckFill/> &nbsp; Booking </h5>
@@ -31,11 +32,12 @@ export const CusHeader = (props) => {
         <Col className='head-title'>
           <h5> <BsFillInfoCircleFill/>  &nbsp; Bus Services </h5>
         </Col>
-        </a>
+        </a> 
+        <a href='/main/addBusService'>
         <Col className='head-title'>
-          <h5> <BsFillPersonFill/>  &nbsp; Profile  </h5>
+          <h5> <BsFillPersonFill/>  &nbsp; Bus Service Add  </h5>
         </Col>
-
+        </a>
       </Row>
 
 

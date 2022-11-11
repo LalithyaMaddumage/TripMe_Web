@@ -15,7 +15,17 @@ function ViewForeign() {
   const [Password, setPassword] = useState("");
   const [type, setType] = useState("");
 
+  const [Amount, setAmount] = useState("");
 
+  //variables for QR code generation
+  const [qrCode, setQrCode] = useState("");
+
+  // Changing the URL only when the user
+  // changes the input
+  useEffect(() => {
+    setQrCode
+  (`http://api.qrserver.com/v1/create-qr-code/?data=${Amount},${PassportNo}!`);
+  }, [Amount, PassportNo]);
 
 
   const win = window.sessionStorage;
@@ -26,6 +36,7 @@ function ViewForeign() {
       setName(response.data.Name);
       setPhone(response.data.Phone);
       setPassportNo(response.data.PassportNo);
+      setAmount(response.data.Amount);
     })
 
   }
@@ -109,6 +120,15 @@ useEffect(() => {
         </Col>
       </Form.Group>
 
+      <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
+        <Form.Label column sm={2}>
+        Amount
+        </Form.Label>
+        <Col sm={10}>
+        <Form.Control type="amount" placeholder="Rs." disabled value={Amount}/>
+        </Col>
+      </Form.Group>
+
     
 
 
@@ -122,12 +142,25 @@ useEffect(() => {
         <Button 
           variant="warning" 
           // type="submit"
-        
-          >
-            Edit Account
-        </Button> &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        >
+          Edit Account
+        </Button> 
+        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
         </a>
+        
         <Button variant="danger" type="submit">Delete Account</Button>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        <a href='/main/addPayment'>
+        <Button variant="outline-primary">Topup</Button>{' '} 
+        </a>
+        <br/><br/>
+        <div align="center" className="output-box">
+            <img src={qrCode} alt="" /> <br/><br/>
+                <a href={qrCode} download="QRCode">
+                    <Button type="button">Download</Button>
+                </a>
+        
+        </div>
         </Col>
         <Col sm={2}>
         </Col>

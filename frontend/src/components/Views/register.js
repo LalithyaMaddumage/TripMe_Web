@@ -4,6 +4,7 @@ import {Container , Row , Col} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 
 function Register() {
@@ -14,6 +15,8 @@ function Register() {
   const[Email,setEmail] = useState("");
   const[NIC,setNIC] = useState("");
   const[Password,setPassword] = useState("");
+
+  let history = useHistory();
 
   function sendData(e){
     e.preventDefault();
@@ -29,7 +32,7 @@ function Register() {
 
     axios.post("http://localhost:8070/traveller/addLocalT",newTraveller).then(()=>{
             alert("New Traveller Added")
-            window.location.reload();
+            history.push("/main/login")
         }).catch((err)=>{
             alert(err)
         })
