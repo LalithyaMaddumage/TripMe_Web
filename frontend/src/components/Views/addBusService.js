@@ -1,6 +1,6 @@
 import React , {useState } from 'react'
 import axios from 'axios'
-import { Header } from '../Header/Header';
+import { CusHeader } from '../Header/cusHeader';
 import {Container , Row , Col} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -58,7 +58,7 @@ export default function AddBusService() {
   return (
     <div>
         <div>  
-        <Header/>
+        <CusHeader/>
         <br></br>
         <br></br>
         <br></br>
