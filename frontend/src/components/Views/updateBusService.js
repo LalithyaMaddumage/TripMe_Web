@@ -210,7 +210,7 @@ export default function UpdateBusService({data ,cl}) {
         Update 
       </Button>
 
-      <Button className='booking-cancel-btn' variant="outline-danger" type="submit"  onClick={cl}>
+      <Button className='booking-cancel-btn' variant="outline-danger" onClick={cl}>
         cancel 
       </Button>
     </Form>
