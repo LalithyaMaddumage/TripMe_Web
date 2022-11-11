@@ -4,6 +4,7 @@ import {Container , Row , Col} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 function ForeignRegister() {
 
@@ -12,6 +13,8 @@ function ForeignRegister() {
   const[Email,setEmail] = useState("");
   const[PassportNo,setPassportNo] = useState("");
   const[Password,setPassword] = useState("");
+
+  let history = useHistory();
 
   function sendData(e){
     e.preventDefault();
@@ -26,7 +29,7 @@ function ForeignRegister() {
 
     axios.post("http://localhost:8070/traveller/addForeignT",newForigner).then(()=>{
             alert("New Foreigner Added")
-            window.location.reload();
+            history.push("/main/login")
         }).catch((err)=>{
             alert(err)
         })
