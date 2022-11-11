@@ -2,7 +2,7 @@ import React , {useState ,useEffect}from 'react'
 import axios from 'axios';
 import MaterialTable from "material-table";
 import { Row , Col,Card,Form,Button ,Modal} from 'react-bootstrap';
-import { CusHeader } from '../Header/CusHeader'
+import { CusHeader } from '../Header/cusHeader';
 import { Footer } from '../Footer/Footer';
 import UpdateBooking from './updateBooking';
 
