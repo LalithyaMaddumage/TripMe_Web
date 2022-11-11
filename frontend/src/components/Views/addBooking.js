@@ -1,10 +1,10 @@
 import React , {useState } from 'react'
 import axios from 'axios'
-import { CusHeader } from '../Header/CusHeader';
+import { Header } from '../Header/Header';
 import {Container , Row , Col} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import { Footer } from '../Footer/Footer';
 
 
 
@@ -61,7 +61,7 @@ export default function AddBooking() {
   return (
     <div>
         <div>  
-        <CusHeader/>
+        <Header/>
         <br></br>
         <br></br>
         <br></br>
@@ -213,7 +213,7 @@ export default function AddBooking() {
     </div>
 
 
-
+    <Footer></Footer>
     </div>
   )
 }

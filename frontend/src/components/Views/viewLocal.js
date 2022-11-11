@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Row , Col,Card,Form,Button} from 'react-bootstrap';
 import { Header } from '../Header/Header';
 import axios from 'axios';
+import { Footer } from '../Footer/Footer';
 
 function ViewLocal() {
   const[Name,setName] = useState("");
@@ -120,7 +121,7 @@ function ViewLocal() {
       </Card>
       </Col>
       </Row>
-
+      <Footer></Footer>
     </div>
   )
 }

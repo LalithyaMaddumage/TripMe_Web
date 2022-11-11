@@ -106,7 +106,7 @@ export default function BusService() {
 <br></br>
   
     
-
+<Footer></Footer>
         {/* <Footer></Footer> */}
     </div>
   )

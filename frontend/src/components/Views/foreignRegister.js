@@ -4,6 +4,7 @@ import {Container , Row , Col} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { Footer } from '../Footer/Footer';
 
 function ForeignRegister() {
 
@@ -143,6 +144,7 @@ function ForeignRegister() {
 
 
     </div>
+    <Footer></Footer>
     </div>
   )
 }

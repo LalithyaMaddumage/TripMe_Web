@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
-
+import { Footer } from '../Footer/Footer';
 function Login() {
 
   const[UserN,setUser] = useState("");
@@ -110,7 +110,7 @@ function Login() {
 
        
 
-
+      <Footer></Footer>
     </div>
   )
 }

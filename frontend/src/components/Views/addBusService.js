@@ -4,7 +4,7 @@ import { CusHeader } from '../Header/CusHeader';
 import {Container , Row , Col} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import { Footer } from '../Footer/Footer';
 
 
 export default function AddBusService() {
@@ -217,7 +217,7 @@ export default function AddBusService() {
 
 
 
-
+    <Footer></Footer>
     </div>
   )
 }
