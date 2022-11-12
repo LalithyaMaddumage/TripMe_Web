@@ -15,8 +15,7 @@ function Home() {
         <Card.Body>
           <Card.Title>Top Up Your Account</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+          Adding money to your account , so you have enough balance to cover any upcoming payments.
           </Card.Text>
         </Card.Body>
         <Card.Footer>
@@ -33,8 +32,7 @@ function Home() {
         <Card.Body>
           <Card.Title>Loacl Passenger</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+           Register as a local passenger and get experience with trip me application.
           </Card.Text>
         </Card.Body>
         <Card.Footer>
@@ -51,8 +49,7 @@ function Home() {
         <Card.Body>
           <Card.Title>Foriegn Passenger</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+          Register as a Foriegn passenger and get experience with trip me.
           </Card.Text>
         </Card.Body>
         <Card.Footer>
