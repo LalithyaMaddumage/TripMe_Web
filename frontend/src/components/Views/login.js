@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 
 function Login() {
 
+  //Asign and set variables
   const[Email,setEmail] = useState("");
   const[Password,setPassword] = useState("");
   const[type,setType] = useState("");
@@ -33,6 +34,7 @@ function Login() {
     //   NIC
     // }
 
+    //validate user
     axios.get(`http://localhost:8070/traveller/getUser/${Email}/${Password}/${type}`).then((response)=>{
             console.log(response.data);
             setLogin(response.data.login);
@@ -43,7 +45,7 @@ function Login() {
                 win.setItem('Email',Email);
                 win.setItem('type',type);
 
-
+                //check for the user type
                 if(type == "LocalTraveller"){
 
                   history.push("/main/viewLocal");
@@ -78,6 +80,7 @@ function Login() {
         <Form  className='form-reg' onSubmit={checkUser}>
             <h4 className='reg'> Login  </h4>
 
+      {/* Asign Email */}
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control 
@@ -85,11 +88,12 @@ function Login() {
           placeholder="Enter email" 
           required
           onChange={(e)=>{
-            setEmail(e.target.value);
+            setEmail(e.target.value);//Asign value
           }}
           />
       </Form.Group>
 
+      {/* Asign Password */}
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control 
@@ -97,11 +101,12 @@ function Login() {
           placeholder="Enter Password" 
           required
           onChange={(e)=>{
-            setPassword(e.target.value);
+            setPassword(e.target.value);//Asign value
           }}
           />
       </Form.Group>
 
+      {/* Asign type */}
       <Form.Group className="mb-3" controlId="formBasicType">
         <Form.Label>Customer Type</Form.Label>
         <select 
@@ -109,7 +114,7 @@ function Login() {
           className='form-select'
           required
           onChange={(e)=>{
-            setType(e.target.value);
+            setType(e.target.value);//Asign value
           }}>
             <option selected disabled value="">Select Customer Type</option>
             <option value="LocalTraveller">Local Passenger</option>

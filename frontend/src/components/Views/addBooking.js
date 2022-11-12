@@ -41,7 +41,7 @@ export default function AddBooking() {
             // Status
         }
             console.log("new booking",newBook);
-
+        //Add bookings route
         axios.post(`http://localhost:8070/booking/addBooking`,newBook).then(()=>{
 
         alert("booking Added")
@@ -73,7 +73,8 @@ export default function AddBooking() {
 
         <Form onSubmit={sendData} className='form-reg'>
             <h4 className='reg'> New Booking  </h4>
-      
+
+        {/* Asign Customer Name */}
         <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Customer Name</Form.Label>
         <Form.Control type="name" placeholder="Name"
@@ -84,7 +85,7 @@ export default function AddBooking() {
         required/>
       </Form.Group>
   
-
+        {/* Asign Phone Number */}
       <Form.Group className="mb-3" controlId="formBasicPhone">
         <Form.Label>Phone Number</Form.Label>
         <Form.Control type="phone" placeholder="Phone"
@@ -95,7 +96,7 @@ export default function AddBooking() {
         required/>
       </Form.Group>
 
-
+        {/* Asign Email address */}
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email"
@@ -129,6 +130,7 @@ export default function AddBooking() {
 
         <Col>
 
+        {/* Asign Destination */}
         <Form.Group className="mb-3" controlId="formBasicDestination">
         <Form.Label>Destination</Form.Label>
         <Form.Control type="Destination" placeholder="Destination" 
@@ -148,6 +150,7 @@ export default function AddBooking() {
         
       <Row>
         <Col>
+        {/* Asign Date */}
       <Form.Group className="mb-3" controlId="formBasicDate">
         <Form.Label>Date</Form.Label>
         <Form.Control type="Date" 
@@ -157,8 +160,11 @@ export default function AddBooking() {
         
         required/>
       </Form.Group>
+
       </Col>
         <Col>
+
+        {/* Asign Time */}
       <Form.Group className="mb-3" controlId="formBasicTime">
         <Form.Label>Time</Form.Label>
         <Form.Control type="Time" placeholder="Time" 
@@ -171,6 +177,7 @@ export default function AddBooking() {
       </Col>
       </Row>
 
+        {/* Asign Bus Service Name */}
       <Form.Group className="mb-3" controlId="formBasicBusService">
         <Form.Label>Bus Service</Form.Label>
         <Form.Control type="BusService" placeholder="Bus Service " 
@@ -195,7 +202,7 @@ export default function AddBooking() {
         <Form.Check type="checkbox" label="Check me out" required/>
       </Form.Group> */}
 
-
+      {/* Submit button */}
       <Button className='booking-btn' variant="success" type="submit">
         Add Booking
       </Button>

@@ -42,7 +42,7 @@ export default function AddBusService() {
            
         }
             console.log("new Bus Service",newBusService);
-
+        //Add new bus services
         axios.post(`http://localhost:8070/busService/addBusService`,newBusService).then(()=>{
 
         alert("Bus Service Added")
@@ -70,7 +70,8 @@ export default function AddBusService() {
 
         <Form onSubmit={sendData} className='form-reg'>
             <h4 className='reg'> Add Bus Service  </h4>
-      
+
+        {/* Asign Bus Number */}
         <Form.Group className="mb-3" controlId="formBasicBusNumber">
         <Form.Label>BusNumber</Form.Label>
         <Form.Control type="BusNumber" placeholder="BusNumber"
@@ -81,7 +82,7 @@ export default function AddBusService() {
         required/>
       </Form.Group>
   
-
+        {/* Asign Bus Services Name */}
       <Form.Group className="mb-3" controlId="formBasicBusServiceName">
         <Form.Label>BusServiceName</Form.Label>
         <Form.Control type="BusServiceName" placeholder="BusServiceName"
@@ -92,7 +93,7 @@ export default function AddBusService() {
         required/>
       </Form.Group>
 
-
+        {/* Asign Bus type */}
       <Form.Group className="mb-3" controlId="formBasicBusType">
         <Form.Label>BusType</Form.Label>
         <Form.Control type="type" placeholder="BusType"
@@ -106,7 +107,8 @@ export default function AddBusService() {
 
         <Row>
         <Col>
-
+        
+        {/* Asign Route Number */}
         <Form.Group className="mb-3" controlId="formBasicRouteNumber">
         <Form.Label>RouteNumber</Form.Label>
         <Form.Control type="text" placeholder="RouteNumber"
@@ -120,7 +122,7 @@ export default function AddBusService() {
         </Col>
 
         <Col>
-
+        {/* Asign Depature Time */}
         <Form.Group className="mb-3" controlId="formBasicDepartureTime">
         <Form.Label>DepartureTime</Form.Label>
         <Form.Control type="Time" placeholder="DepartureTime" 
@@ -140,8 +142,10 @@ export default function AddBusService() {
         
       <Row>
         <Col>
+
+        {/* Asign Arrival time */}
       <Form.Group className="mb-3" controlId="formBasicJourneyTime">
-        <Form.Label>JourneyTime</Form.Label>
+        <Form.Label>ArrivalTime</Form.Label>
         <Form.Control type="Time" 
          onChange={(e)=>{
             setJourneyTime(e.target.value);  //asign values
@@ -151,6 +155,8 @@ export default function AddBusService() {
       </Form.Group>
       </Col>
         <Col>
+
+        {/* Asign resting points */}
       <Form.Group className="mb-3" controlId="formBasicTRestStops">
         <Form.Label>RestStops</Form.Label>
         <Form.Control type="RestStops" placeholder="RestStops" 
@@ -163,6 +169,7 @@ export default function AddBusService() {
       </Col>
       </Row>
 
+        {/* Asign air condiion available or not */}
       <Form.Group className="mb-3" controlId="formBasicAirCondition">
         <Form.Label>AirCondition</Form.Label>
         <Form.Control type="AirCondition" placeholder="AirCondition " 
@@ -173,6 +180,7 @@ export default function AddBusService() {
         required/>
       </Form.Group>
 
+        {/* Asign WIFI available or not */}
       <Form.Group className="mb-3" controlId="formBasicWiFi">
         <Form.Label>WiFi</Form.Label>
         <Form.Control type="text" placeholder="WiFi " 
@@ -183,6 +191,7 @@ export default function AddBusService() {
         required/>
       </Form.Group>
 
+        {/* Asign Charging plug available or not */}
       <Form.Group className="mb-3" controlId="formBasicChargingPlugs">
         <Form.Label>ChargingPlugs</Form.Label>
         <Form.Control type="text" placeholder="ChargingPlugs " 

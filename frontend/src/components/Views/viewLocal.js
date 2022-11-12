@@ -4,6 +4,7 @@ import { Header } from '../Header/Header';
 import axios from 'axios';
 
 function ViewLocal() {
+  //Asign and set variables
   const[Name,setName] = useState("");
   const[Address,setAddress] = useState("");
   const[Phone,setPhone] = useState("");
@@ -20,12 +21,13 @@ function ViewLocal() {
   // changes the input
   useEffect(() => {
     setQrCode
-  (`http://api.qrserver.com/v1/create-qr-code/?data=${Amount},${NIC}!`);
+  (`http://api.qrserver.com/v1/create-qr-code/?data=${Amount},${NIC}!`);//qr code link
   }, [Amount, NIC]);
 
   const win = window.sessionStorage;
 
   const loadData = () =>{
+    //fetch data from traverller
     axios.get(`http://localhost:8070/traveller/getTraveller/${type}/${Email}`).then((response)=>{
       console.log(response.data);
       setName(response.data.Name);

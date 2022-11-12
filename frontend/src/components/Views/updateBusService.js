@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 export default function UpdateBusService({data ,cl}) {
 
+    //Asign and set variables
     console.log ("kkkkk",data)
     const [BusServiceName, setBusServiceName] = useState("");
     const [BusNumber, setBusNumber] = useState("");
@@ -57,7 +58,8 @@ export default function UpdateBusService({data ,cl}) {
            
         }
             console.log("update ",updateBus);
-            
+        
+        //update data using id
         axios.put(`http://localhost:8070/busService/updateBusService/${data._id}`,updateBus).then(()=>{
 
         alert("Booking Details Updated Successfully")

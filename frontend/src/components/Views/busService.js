@@ -9,11 +9,13 @@ import { CusHeader } from '../Header/cusHeader';
 
 
 export default function BusService() {
+  //Asign and set variables
   const[busService,setBusService]=useState([]);
   const [StateUpdate, setStateUpdate] = useState(false)
   const [BusUpdate, setBusServiceUpdate] = useState()
 
   useEffect(()=>{
+    //Fetch data from bus services
     axios.get("http://localhost:8070/busService/allBusServices").then((res)=>{
         console.log(res.data);
         setBusService(res.data);

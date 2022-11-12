@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 export default function UpdateBooking({data ,cl}) {
 
+    //Asign and set variables
     const [CustomerName, setCustomerName] = useState("");
     const [Mobile, setMobile] = useState("");
     const [Email , setEmail] = useState ("");
@@ -52,7 +53,8 @@ export default function UpdateBooking({data ,cl}) {
             Status
         }
             console.log("new booking",updateBook);
-            
+        
+        //update data using id
         axios.put(`http://localhost:8070/booking/updatebooking/${data._id}`,updateBook).then(()=>{
 
         alert("Booking Details Updated Successfully")
@@ -78,7 +80,8 @@ export default function UpdateBooking({data ,cl}) {
 
         <Form onSubmit={sendData} className='form-reg'>
             <h4 className='reg'>Update Booking Details  </h4>
-      
+
+        {/* Asign Name */}
         <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Customer Name</Form.Label>
         <Form.Control type="name" 
@@ -90,7 +93,7 @@ export default function UpdateBooking({data ,cl}) {
         disabled/>
       </Form.Group>
   
-
+      {/* Asign phone no */}
       <Form.Group className="mb-3" controlId="formBasicPhone">
         <Form.Label>Phone Number</Form.Label>
         <Form.Control type="phone" placeholder="Phone"
@@ -102,7 +105,7 @@ export default function UpdateBooking({data ,cl}) {
         disabled/>
       </Form.Group>
 
-
+      {/* Asign Email */}
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email"
@@ -122,6 +125,7 @@ export default function UpdateBooking({data ,cl}) {
         <Row>
         <Col>
 
+        {/* Asign pickup location */}
         <Form.Group className="mb-3" controlId="formBasicPickUp">
         <Form.Label>Pick Up</Form.Label>
         <Form.Control type="text" placeholder="Pick Up"
@@ -136,6 +140,7 @@ export default function UpdateBooking({data ,cl}) {
 
         <Col>
 
+        {/* Asign destinaion */}
         <Form.Group className="mb-3" controlId="formBasicDestination">
         <Form.Label>Destination</Form.Label>
         <Form.Control type="Destination" placeholder="Destination" 
@@ -156,6 +161,7 @@ export default function UpdateBooking({data ,cl}) {
         
       <Row>
         <Col>
+        {/* Asign Date */}
       <Form.Group className="mb-3" controlId="formBasicDate">
         <Form.Label>Date</Form.Label>
         <Form.Control type="text" 
@@ -168,6 +174,8 @@ export default function UpdateBooking({data ,cl}) {
       </Form.Group>
       </Col>
         <Col>
+
+        {/* Asign Time */}
       <Form.Group className="mb-3" controlId="formBasicTime">
         <Form.Label>Time</Form.Label>
         <Form.Control type="text" placeholder="Time" 
@@ -181,6 +189,7 @@ export default function UpdateBooking({data ,cl}) {
       </Col>
       </Row>
 
+      {/* Asign bus service */}
       <Form.Group className="mb-3" controlId="formBasicBusService">
         <Form.Label>Bus Service</Form.Label>
         <Form.Control type="BusService" placeholder="Bus Service " 

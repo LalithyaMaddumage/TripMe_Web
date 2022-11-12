@@ -8,6 +8,8 @@ import {Modal} from "react-bootstrap";
 
 
 function UpdateForeigner() {
+
+  //Asign and set variables
   const [Name, setName] = useState("");
   const [Phone, setPhone] = useState("");
   const [Email, setEmail] = useState("");
@@ -21,6 +23,7 @@ function UpdateForeigner() {
   const win = window.sessionStorage;
 
   const loadData = () =>{
+    //get data from traveller table
     axios.get(`http://localhost:8070/traveller/getTraveller/${type}/${Email}`).then((response)=>{
       console.log(response.data);
       setName(response.data.Name);
@@ -55,6 +58,7 @@ const handleSubmit = () =>{
         PassportNo
     }
 
+    //updte traveller using id
     axios.put(`http://localhost:8070/traveller/updateTraveller/${type}/${Email}`,updateForeigner).then((response)=>{
         alert("Foreign Passenger Details Updated Successfully!");
         window.location.reload(true);
@@ -64,26 +68,6 @@ const handleSubmit = () =>{
     });
 
  }
-// function handleSubmit(){
-
-  
-
-//     const updateForeigner = {
-//         Name,
-//         Phone,
-//         Email,
-//         PassportNo
-//     }
-
-//     axios.put(`http://localhost:8070/traveller/updateTraveller/${type}/${Email}`,updateForeigner).then((response)=>{
-//         alert("Foreign Passenger Details Updated Successfully!");
-//         window.location.reload(true);
-//     }).catch((err)=>{
-//         console.log(err)
-//         alert("Error occured !");
-//     });
-// };
-
 
   return (
     
@@ -114,7 +98,7 @@ const handleSubmit = () =>{
         <Col sm={10}>
         <Form.Control type="name" placeholder="Name" value={Name}
         onChange={(e)=>{
-            setName(e.target.value);
+            setName(e.target.value);//asign values
           }}
         />
         </Col>
@@ -127,7 +111,7 @@ const handleSubmit = () =>{
         <Col sm={10}>
         <Form.Control type="phone" placeholder="Phone"  value={Phone}
         onChange={(e)=>{
-            setPhone(e.target.value);
+            setPhone(e.target.value);//asign values
           }}
         />
         </Col>
@@ -140,7 +124,7 @@ const handleSubmit = () =>{
         <Col sm={10}>
         <Form.Control type="email" placeholder="Enter email"  value={Email}
         onChange={(e)=>{
-            setEmail(e.target.value);
+            setEmail(e.target.value);//asign values
           }}
         />
         </Col>
@@ -154,7 +138,7 @@ const handleSubmit = () =>{
         <Col sm={10}>
         <Form.Control type="passport" placeholder="Passport"  value={PassportNo}
         onChange={(e)=>{
-            setPassportNo(e.target.value);
+            setPassportNo(e.target.value);//asign values
           }}
         />
         </Col>

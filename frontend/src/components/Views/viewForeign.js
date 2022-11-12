@@ -8,6 +8,7 @@ import UpdateForeigner from './updateForeigner';
 
 
 function ViewForeign() {
+  //Asign and set variables
   const [Name, setName] = useState("");
   const [Phone, setPhone] = useState("");
   const [Email, setEmail] = useState("");
@@ -31,6 +32,7 @@ function ViewForeign() {
   const win = window.sessionStorage;
 
   const loadData = () =>{
+    //fetch data from traverller
     axios.get(`http://localhost:8070/traveller/getTraveller/${type}/${Email}`).then((response)=>{
       console.log(response.data);
       setName(response.data.Name);

@@ -8,6 +8,7 @@ import UpdateBooking from './updateBooking';
 
 export default function Booking() {
 
+  //Asign and set variables
   const[bookingData,setBData]=useState([]);
 
   const [StateUpdate, setStateUpdate] = useState(false)
@@ -15,7 +16,7 @@ export default function Booking() {
 
 
 
-
+  //fetch data from bookings
   useEffect(()=>{
     axios.get("http://localhost:8070/booking/allBookings").then((res)=>{
         console.log(res.data);
@@ -32,6 +33,7 @@ export default function Booking() {
         <CusHeader></CusHeader>
         <div className='container'>
 
+        {/*Material Table for show data*/}
         <div className=' container-fluid mt-5 '>
         <MaterialTable  style={{background:"#E3ECFF"}}
 

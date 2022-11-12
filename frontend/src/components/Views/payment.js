@@ -42,6 +42,7 @@ export default function Payments() {
 
     const loadData = () =>{
     
+    //fetch data from traveller table according to the logged email
     axios.get(`http://localhost:8070/traveller/getTraveller/${type}/${Email}`).then((response)=>{
       console.log(response.data);
       setName(response.data.Name);
@@ -70,7 +71,7 @@ export default function Payments() {
          }
       },[type,Email])
 
-    //validate function
+    //validate card number function
     const CardValidation = () => {
         const CardErr={}; //State
         let CardValid = true; //setting flag
@@ -116,7 +117,8 @@ export default function Payments() {
                 confirmButtonColor: "#1fc191",
 
             })
-
+            
+            //if it is a local traveller
             if(type == "LocalTraveller"){
 
                 const updateLocal = {
@@ -130,6 +132,7 @@ export default function Payments() {
                     Amount1
            
                 }
+                //add data
                 axios.put(`http://localhost:8070/traveller/updateTraveller/${type}/${Email}`,updateLocal).then((response)=>{
                     Swal.fire({
                         title: "Rental Record added successfully! ",
@@ -151,7 +154,7 @@ export default function Payments() {
                 })
 
                 
-
+              //if it is a foreign traveller
               }else if(type == "ForeignTraveller"){
 
                 const updateForeigner = {
@@ -164,6 +167,7 @@ export default function Payments() {
                     Amount1
            
                 }
+                //add data
                 axios.put(`http://localhost:8070/traveller/updateTraveller/${type}/${Email}`,updateForeigner).then((response)=>{
                     Swal.fire({
                         title: "Rental Record added successfully! ",
@@ -209,18 +213,18 @@ export default function Payments() {
         <Form onSubmit={sendData} className='form-reg'>
         <h4 className='reg'> Enter Card Details  </h4>
 
-      
+        {/* Asign card no */}
         <Form.Group className="mb-3" controlId="formBasicCardNumber">
         <Form.Label>Card Number</Form.Label>
         <Form.Control type="CardNumber" placeholder="0000-0000-0000-0000"
         onChange={(event) => {
-            setCardNo(event.target.value);
+            setCardNo(event.target.value);//validate function calling
            
         }}
         required/>
         </Form.Group>
   
-
+        {/* Asign name */}
         <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Card Holder Name</Form.Label>
         <Form.Control type="name" placeholder="Name"
@@ -229,6 +233,8 @@ export default function Payments() {
 
         <div class="row">
         <div class="col-8 col-md-6">
+
+        {/* Asign cvv code */}
         <Form.Group className="mb-3" controlId="formBasicCVV">
         <Form.Label>CVV</Form.Label>
         <Form.Control type="number" placeholder="cvv"
@@ -237,6 +243,7 @@ export default function Payments() {
         </Form.Group>
         </div>
         
+        {/* Asign expire date */}
         <div class="col-8 col-md-6">
         <Form.Group className="mb-3" controlId="formBasicExpireDate">
         <Form.Label>Expire Date</Form.Label>
@@ -248,11 +255,12 @@ export default function Payments() {
         </div>
         </div>
 
+        {/* Asign Amount */}
         <Form.Group className="mb-3" controlId="formBasicAmount">
         <Form.Label>Amount</Form.Label>
         <Form.Control type="number" placeholder="Rs."
           onChange={(e)=>{
-            setAmount(e.target.value);
+            setAmount(e.target.value);//Asign value
         }}
         
         required/>

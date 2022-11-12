@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 
 function Register() {
 
+  //Asign and set variables
   const[Name,setName] = useState("");
   const[Address,setAddress] = useState("");
   const[Phone,setPhone] = useState("");
@@ -30,6 +31,7 @@ function Register() {
       Password
     }
 
+    //Add data to local traveller table
     axios.post("http://localhost:8070/traveller/addLocalT",newTraveller).then(()=>{
             alert("New Traveller Added")
             history.push("/main/login")
@@ -56,18 +58,20 @@ function Register() {
         <Form  className='form-reg' onSubmit={sendData}>
             <h4 className='reg'> Customer Registeration  </h4>
 
-            <Form.Group className="mb-3" controlId="formBasicName">
+        {/* Asign Name */}
+        <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Name</Form.Label>
         <Form.Control 
           type="name" 
           placeholder="Name" 
           required
           onChange={(e)=>{
-            setName(e.target.value);
+            setName(e.target.value);//Asign value
           }}
           />
       </Form.Group>
-
+      
+      {/* Asign Address */}
       <Form.Group className="mb-3" controlId="formBasicAddress">
         <Form.Label>Address</Form.Label>
         <Form.Control 
@@ -75,11 +79,12 @@ function Register() {
           placeholder="Adress" 
           required
           onChange={(e)=>{
-            setAddress(e.target.value);
+            setAddress(e.target.value);//Asign value
           }}
           />
       </Form.Group>
 
+      {/* Asign Phone no */}
       <Form.Group className="mb-3" controlId="formBasicPhone">
         <Form.Label>Phone Number</Form.Label>
         <Form.Control 
@@ -87,12 +92,12 @@ function Register() {
           placeholder="Phone" 
           required
           onChange={(e)=>{
-            setPhone(e.target.value);
+            setPhone(e.target.value);//Asign value
           }}
           />
       </Form.Group>
 
-
+      {/* Asign Email */}
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control 
@@ -100,7 +105,7 @@ function Register() {
           placeholder="Enter email" 
           required
           onChange={(e)=>{
-            setEmail(e.target.value);
+            setEmail(e.target.value);//Asign value
           }}
           />
 
@@ -110,6 +115,7 @@ function Register() {
         </Form.Text>
         </Form.Group>
 
+        {/* Asign Password */}
         <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control 
@@ -117,13 +123,12 @@ function Register() {
           placeholder="Enter Password" 
           required
           onChange={(e)=>{
-            setPassword(e.target.value);
+            setPassword(e.target.value);//Asign value
           }}
           />
       </Form.Group>
 
-
-
+      {/* Asign NIC */}
       <Form.Group className="mb-3" controlId="formBasicNIC">
         <Form.Label>NIC</Form.Label>
         <Form.Control 
@@ -131,7 +136,7 @@ function Register() {
           placeholder="NIC" 
           required
           onChange={(e)=>{
-            setNIC(e.target.value);
+            setNIC(e.target.value);//Asign value
           }}
           />
       </Form.Group>

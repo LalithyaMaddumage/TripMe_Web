@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 
 function Login() {
 
+  //Asign and set variables
   const[UserN,setUser] = useState("");
   const[Password,setPassword] = useState("");
   const[type,setType] = useState("");
@@ -33,6 +34,7 @@ function Login() {
     //   NIC
     // }
 
+    //Validate username and password
     axios.get(`http://localhost:8070/login/getUser/${UserN}/${Password}`).then((response)=>{
             console.log(response.data);
             setLogin(response.data.login);
@@ -72,6 +74,7 @@ function Login() {
         <Form  className='form-reg' onSubmit={checkUser}>
             <h4 className='reg'> Login  </h4>
 
+      {/* Asign Email Address */}
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control 
@@ -84,6 +87,7 @@ function Login() {
           />
       </Form.Group>
 
+      {/* Asign password */}
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control 
